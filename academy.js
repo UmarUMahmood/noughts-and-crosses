@@ -3,7 +3,7 @@
 // Take the row and column number between 0 and 2 
 // (inclusive) and update the game state.
 function takeTurn(row, column) {
-    console.log("takeTurn was called with row: "+row+", column:"+column);
+    console.log("takeTurn was called with row: " + row + ", column:" + column);
 }
 
 // Return either "noughts", "crosses" or "nobody" if the game is over.
