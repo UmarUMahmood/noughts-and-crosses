@@ -72,7 +72,7 @@ function getBoard(state) {
 }
 
 if (typeof exports === 'object') {
-    console.log("Running in Node")
+    // console.log("Running in Node")
     // Node. Does not work with strict CommonJS, but only CommonJS-like 
     // environments that support module.exports, like Node.
     module.exports = {
