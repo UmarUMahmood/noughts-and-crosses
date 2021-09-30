@@ -61,4 +61,27 @@ describe("When a piece is placed", () => {
 
         expect(actual).toStrictEqual(expected)
     })
+
+    test("Reject selection if the selected space is occupied", () => {
+
+        const row = 0
+        const column = 0
+        const state = {
+            board: [["nought", null, null], [null, null, null], [null, null, null]],
+            playerID: -1,
+            turnCount: 1,
+            winner: null
+        }
+
+        const expected = {
+            board: [["nought", null, null], [null, null, null], [null, null, null]],
+            playerID: -1,
+            turnCount: 1,
+            winner: null
+        }
+
+        const actual = takeTurn(row, column, state)
+
+        expect(actual).toStrictEqual(expected)
+    })
 })
