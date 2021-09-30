@@ -3,8 +3,6 @@ const { getBoard, resetGame, takeTurn } = require("./academy")
 describe("When getBoard is called", () => {
     test("We are returned with a 2D array that represents our board", () => {
 
-        jest.spyOn(console, 'log').mockImplementation(() => { })
-
         const state = { board: [["nought", "nought", null], ["cross", "cross", null], [null, null, null]] }
 
         const expected = [["nought", "nought", null], ["cross", "cross", null], [null, null, null]]
@@ -17,8 +15,6 @@ describe("When getBoard is called", () => {
 
 describe("When the reset button is clicked", () => {
     test("The state properties are reset to their initial values", () => {
-
-        jest.spyOn(console, 'log').mockImplementation(() => { });
 
         const state = {
             board: [["nought", "nought", "nought"], ["cross", "cross", null], [null, null, null]],
@@ -78,6 +74,29 @@ describe("When a piece is placed", () => {
             playerID: -1,
             turnCount: 1,
             winner: null
+        }
+
+        const actual = takeTurn(row, column, state)
+
+        expect(actual).toStrictEqual(expected)
+    })
+
+    test("Reject selection if someone has already won", () => {
+
+        const row = 1
+        const column = 2
+        const state = {
+            board: [["nought", "nought", "nought"], ["cross", "cross", null], [null, null, null]],
+            playerID: -1,
+            turnCount: 5,
+            winner: "noughts"
+        }
+
+        const expected = {
+            board: [["nought", "nought", "nought"], ["cross", "cross", null], [null, null, null]],
+            playerID: -1,
+            turnCount: 5,
+            winner: "noughts"
         }
 
         const actual = takeTurn(row, column, state)
