@@ -1,4 +1,4 @@
-const { getBoard, resetGame } = require("./academy")
+const { getBoard, resetGame, takeTurn } = require("./academy")
 
 describe("When getBoard is called", () => {
     test("We are returned with a 2D array that represents our board", () => {
@@ -15,8 +15,8 @@ describe("When getBoard is called", () => {
     })
 })
 
-describe("When resetBoard is called", () => {
-    test("The state variables are reset to their initial values", () => {
+describe("When the reset button is clicked", () => {
+    test("The state properties are reset to their initial values", () => {
 
         jest.spyOn(console, 'log').mockImplementation(() => { });
 
@@ -33,6 +33,31 @@ describe("When resetBoard is called", () => {
         }
 
         const actual = resetGame(state)
+
+        expect(actual).toStrictEqual(expected)
+    })
+})
+
+describe("When a piece is placed", () => {
+    test("Update the state if there is no winner and the selected space is empty", () => {
+
+        const row = 0
+        const column = 0
+        const state = {
+            board: [[null, null, null], [null, null, null], [null, null, null]],
+            playerID: 1,
+            turnCount: 0,
+            winner: null
+        }
+
+        const expected = {
+            board: [["nought", null, null], [null, null, null], [null, null, null]],
+            playerID: -1,
+            turnCount: 1,
+            winner: null
+        }
+
+        const actual = takeTurn(row, column, state)
 
         expect(actual).toStrictEqual(expected)
     })

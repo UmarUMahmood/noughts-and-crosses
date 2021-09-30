@@ -38,7 +38,8 @@ function takeTurn(row, column, state) {
 
         return state
     } else {
-        return console.log("Placed is occupied or winner has been called. Reset for a new game.")
+        console.log("Placed is occupied or winner has been called. Reset for a new game.")
+        return state
     }
 }
 
