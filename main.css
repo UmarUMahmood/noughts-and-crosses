@@ -2,7 +2,7 @@
     width: 100px;
     height: 100px;
     margin: 0px;
-    border: 2px black solid;
+    border: 2px #EC6839 solid;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,12 +23,14 @@
 
 #winner-display {
     display: none;
-    background-color: red;
+    background-color: #EC6839;
     color: white;
 }
 
 body {
     text-align: center;
+    background-color: #2B2D30;
+    color: #FFFFFF
 }
 
 #reset-button{
