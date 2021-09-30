@@ -1,0 +1,22 @@
+{
+  "name": "noughts-and-crosses",
+  "version": "1.0.0",
+  "description": "* After cloning the repository, open the directory the project was cloned to in a command line and run `npm init` and `npm i --save-dev jest`.\r * Run the command `npm test` to run the tests.",
+  "main": "academy.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UmarUMahmood/noughts-and-crosses.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UmarUMahmood/noughts-and-crosses/issues"
+  },
+  "homepage": "https://github.com/UmarUMahmood/noughts-and-crosses#readme",
+  "devDependencies": {
+    "jest": "^27.2.4"
+  }
+}
