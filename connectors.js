@@ -49,7 +49,7 @@ function isValidColumn(columnArray) {
 
 // A grid position was clicked call the game's turn function, redraw and then check for a winner.
 function positionClick(rowIndex, columnIndex, event) {
-    takeTurn(rowIndex, columnIndex);
+    takeTurn(rowIndex, columnIndex, state);
     const board = getBoard(state);
     if (!isValidRowOrColumn(board) || !board.every(isValidColumn)) {
         throw "Expecting 'getBoard' to return a 2d array where all values match are null or one of the strings 'nought' or 'cross'. Actually received: " + JSON.stringify(board);
