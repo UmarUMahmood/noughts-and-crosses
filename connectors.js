@@ -69,7 +69,7 @@ function positionClick(rowIndex, columnIndex, event) {
 
 // The reset button was clicked, call the game's reset function then reset the DOM.
 function resetClick(event) {
-    resetGame();
+    resetGame(state);
     const winnerName = document.getElementById("winner-name");
     winnerName.innerText = "";
     const winnerDisplay = document.getElementById("winner-display");

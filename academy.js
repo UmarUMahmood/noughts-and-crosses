@@ -14,15 +14,23 @@ function checkWinner() {
 }
 
 // Set the game state back to its original state to play another game.
-function resetGame() {
+function resetGame(state) {
     console.log("resetGame was called")
+
+    state.board = [[null, null, null], [null, null, null], [null, null, null]]
+    state.turnCount = 0
+    state.winner = null
+
+    return state
 }
 
 // Return the current board state with either a "nought" or a "cross" in
 // each position. Put a null in a position that hasn't been played yet.
 function getBoard(state) {
     console.log("getBoard was called")
+
     board = state.board
+
     return board
 }
 
