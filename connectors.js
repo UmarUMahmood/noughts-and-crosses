@@ -1,6 +1,13 @@
 // This file contains helper code beyond the first week "Intro to JavaScript" course content.
 // You should not have to make any changes in this file to get your game working.
 
+const state = {
+    board: [[null, null, null], [null, null, null], [null, null, null]],
+    playerID: 1,
+    turnCount: 0,
+    winner: null
+}
+
 // Validate academite functions are available
 const functions = ["takeTurn", "getBoard", "checkWinner", "resetGame"];
 for (f of functions) {
@@ -43,7 +50,7 @@ function isValidColumn(columnArray) {
 // A grid position was clicked call the game's turn function, redraw and then check for a winner.
 function positionClick(rowIndex, columnIndex, event) {
     takeTurn(rowIndex, columnIndex);
-    const board = getBoard();
+    const board = getBoard(state);
     if (!isValidRowOrColumn(board) || !board.every(isValidColumn)) {
         throw "Expecting 'getBoard' to return a 2d array where all values match are null or one of the strings 'nought' or 'cross'. Actually received: " + JSON.stringify(board);
     }
