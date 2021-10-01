@@ -1,7 +1,7 @@
 // This file contains helper code beyond the first week "Intro to JavaScript" course content.
 // You should not have to make any changes in this file to get your game working.
 
-const state = {
+let state = {
     board: [[null, null, null], [null, null, null], [null, null, null]],
     playerID: 1,
     turnCount: 0,
@@ -55,7 +55,12 @@ function positionClick(rowIndex, columnIndex, event) {
         throw "Expecting 'getBoard' to return a 2d array where all values match are null or one of the strings 'nought' or 'cross'. Actually received: " + JSON.stringify(board);
     }
     drawBoard(board);
-    const winner = checkWinner();
+
+    // only check winner when winner is null, otherwise it will reset winner to null when illegal move is played
+    if (!state.winner) {
+        state = checkWinner(state);
+    }
+    const winner = state.winner
     if (winner) {
         if (typeof winner !== "string" || !["noughts", "crosses", "nobody"].includes(winner)) {
             throw "Expecting 'checkWinner' to return null or one of the strings 'noughts', 'crosses' or 'nobody'. Actually received: " + winner;
